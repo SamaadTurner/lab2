@@ -46,26 +46,30 @@ for(let position = 0; position<questionArray.length; position++){
   askQuestion(questionArray[position], answersArray[position], 1);
 }
 // Guess Number Question
-let correctNumber = 7;
-let maxAttempts = 4;
-let attempt;
-for(attempt = 1; attempt <= maxAttempts; attempt++){
-  let userGuess = parseInt(prompt('Guess a number (between 1 and 15):'));
+function guessNumber() {
+  let correctNumber = 7;
+  let maxAttempts = 4;
+  let attempt;
+  for(attempt = 1; attempt <= maxAttempts; attempt++){
+    let userGuess = parseInt(prompt('Guess a number (between 1 and 15):'));
 
-  if (userGuess === correctNumber) {
-    alert('Congratulations! You guessed the correct number.');
-    score++;
-    break;
-  } else if (userGuess < correctNumber) {
-    alert('Too low! Try again.');
-  } else {
-    alert('Too high! Try again.');
+    if (userGuess === correctNumber) {
+      alert('Congratulations! You guessed the correct number.');
+      score++;
+      break;
+    } else if (userGuess < correctNumber) {
+      alert('Too low! Try again.');
+    } else {
+      alert('Too high! Try again.');
+    }
+  }
+
+  if ( attempt > maxAttempts) {
+    alert('Sorry, you have exhausted all attempts. The correct number was ' + correctNumber + '.');
   }
 }
 
-if ( attempt > maxAttempts) {
-  alert('Sorry, you have exhausted all attempts. The correct number was ' + correctNumber + '.');
-}
+guessNumber();
 
 
 let possibleAnswers = ['yellow', 'purple', 'gold'];
